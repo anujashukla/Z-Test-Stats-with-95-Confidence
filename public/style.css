@@ -1,0 +1,78 @@
+.homeSection {
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:40px;
+}
+.homeSection .goToStats {
+	margin-left:45%;
+}
+.problemStatement, .outputFormat, .inputFormat, .approach {
+	font-size:18px;
+	color:#6D6968;
+}
+
+.problemSection , .approachSection, .referenceSection {
+	background-color: #E5E4E2;
+	padding-left: 20px;
+	padding-right: 30px;
+	padding-top: 1px;
+	padding-bottom: 10px;
+}
+
+h1 {
+	text-align:center; color:#40C4FF
+}
+
+h2 {
+	color: green;
+}
+h3 {
+	color: grey;
+}
+
+.backgroundStats {
+	background-color:#C6DEFF;
+}
+.welcomeSection {
+	text-align: center;
+}
+.uploadSection {
+	text-align:center;
+}
+.uploadSection .sufficiencycondition {
+	text-align: left;
+	margin-left: 43%;
+}
+
+.uploadSection .fileupload {
+	margin-left: 46.5%;
+}
+.downloadResult {
+	margin-left:40%;
+	margin-top: 45px;
+}
+
+.resultButton, .showHere {
+	font-size:30px;
+	margin-right:30px;
+	display:none;
+}
+
+.result {
+	margin-left: 35%;
+	background-color: lightgrey;
+	padding-left:20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom:5%;
+	width:580px;
+	display:none;
+	text-align: left;
+	border: 3px solid transparent;
+	-webkit-box-shadow: 0 1px 1px #aaa;
+}
+
+.welcomeSection button {
+	margin-top:-100px;
+	margin-right: 40px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html ng-app = "myApp">
+<head>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- favicon -->
+	<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+	<!-- stye sheet -->
+	<link rel="stylesheet" href="./style.css" crossorigin="anonymous">
+	
+	<!-- title -->
+	<title>Advertisement Statistics</title>
+
+	<!-- Heading -->
+	<h1>Statistics Assignment</h1>
+	<hr>
+</head>
+
+<body>
+	<!-- Home Page Section -->
+	<div id="homeSection" class="homeSection" ng-controller="uploadFileController">
+		<!-- Problem statement -->
+		<div id="problemSection" class="problemSection">
+			<span>
+				<h3>PROBLEM:</h3>
+				<hr>
+				<span class="problemStatement">
+					Using Ad Performance Report (attached), do A/B Testing of Ads within each ad group <br>
+					For each ad group, find the ads that are losers, and should be removed.
+					Use no of Impressions as the count of  trials, and no of clicks as count of success. <br>
+					Use 95% statistical confidence to determine if a given ad is better than another ad in the same ad group. Assume normal distribution. <br>
+					<u>Example of A/B Testing:</u><br>
+					if there are 5 ads in an ad group, if 2 of them `win` over the all the other 3, the `other 3` are losers, and should be suggested for removal. Of course there can be ad groups where there are no clear winners or losers, and these should be marked. <br>
+				</span>
+	 			<span class="outputFormat">
+					<u>OUTPUT:</u><br>
+					A TSV with AdGroupID, and Ad Id of all the ads that are clear winners or losers. Winning Ads should be marked ‘WINNER’ and losing Ads should be marked ‘LOSER’. Ads that are neither winning or losing should be marked “NO_RESULT” <br>	
+				</span>
+				<span class="inputFormat">
+					<u>INPUT:</u>
+					A  Ad Performance Report. It has AdGroupId, AdId, Clicks, and Impressions. (attached with email). Note that if you open the file in excel, it might show the IDs incorrectly in scientific notation.
+				</span>
+			</span>
+		</div>
+		<hr>
+		<!-- Approach section -->
+		<div id="approachSection" class="approachSection">
+			<span class="approach">
+				<h3>Approach:</h3>
+				<hr>
+				We have used Two Proportion Z Test with 95 % Confidence interval method. <br>
+				For Z test to perform, as per stastics world, there are few sufficiency conditions to check whether the data is large enough to
+				perform the Z test. The options for those sufficiency conditions are provded in the statistics page section where user can select the
+				option, and results will be calculated accordingly.
+				<br>
+				<br>
+				The full pseudo code along with our logic can be downloded <a ng-href="downloadapproach"> here </a>
+			</span>
+		</div>
+		<hr>
+		<div id="referenceSection" class="referenceSection">
+			<span class="approach">
+				<h3>References:</h3>
+				<hr>
+				<li> <a href="http://www.kean.edu/~fosborne/bstat/06d2pop.html" target="_blank"> http://www.kean.edu/~fosborne/bstat/06d2pop.html </a> </li>
+				<li> <a href="https://www.youtube.com/watch?v=JywKyKMJ58E&t=28s" target="_blank"> https://www.youtube.com/watch?v=JywKyKMJ58E&t=28s </a> </li>
+			</span>
+		</div>
+		<br>
+		<br>
+
+		<!-- go to statistics page -->
+		<button id="goToStats" class="btn btn-success goToStats" ng-click="goToCalculationPage()"> Go To Calculation Page</button>
+	</div>
+
+<!-- Included scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="controllers/uploadFileController.js"></script>
+<script src="/findWinner.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html ng-app = "myApp">
+<head>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		<!-- favicon -->
+	<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+	<!-- stye sheet -->
+	<link rel="stylesheet" href="./style.css" crossorigin="anonymous">
+	
+	<!-- title -->
+	<title>Advertisement Statistics</title>
+
+	<!-- Heading -->
+	<h1>Statistics Assignment</h1>
+	<hr>
+</head>
+
+<body class="backgroundStats">
+	<div ng-controller="uploadFileController">
+		<!-- General -->
+		<div id="welcomeSection" class="welcomeSection">
+			<h2> Please upload the file </h2>
+			<h3>Supported formats: .tsv, .csv, .xls, .xlsx</h3>
+			<button class="btn btn-success pull-right" ng-click="goToHome()" id="goToHome" class="goToHome"> Go To Home Page</button>
+		</div>
+		<br>
+	
+		<div id="uploadSection" class="uploadSection">
+			<!-- Uplod file here -->
+			<form id ="uploadForm" enctype ="multipart/form-data" action="/upload" method = "post">
+				<input id="fileupload" class="fileupload" type="file" name="upload_file"/> <br>
+				<input type="submit" value="Upload" name="submit">
+			</form>
+			<hr>
+
+			<!-- Sufficiency conditions -->
+			<div id="sufficiencyCondition" class="sufficiencycondition">
+				<h3> Sample Size Sufficiency Conditions </h3>
+				<label>
+			    	<input type="radio" ng-model="condition" value="none"> None
+			  	</label>
+			  	<br>
+				<label>
+			    	<input type="radio" ng-model="condition" value="five"> n (trial size) * P-bar (success proportion) >= 5 and <br> n (trial size) * q-bar (failure proportion) >=5
+			  	</label>
+			  	<br/>
+			  	<label>
+			    	<input type="radio" ng-model="condition" value="ten"> n (trial size) * P-bar (success proportion) >= 10 and <br> n (trial size) * q-bar (failure proportion) >= 10
+			  	</label>
+			  	<br/>
+			  	<label>
+			    	<input type="radio" ng-model="condition" value="fifteen"> n (trial size) * P-bar (success proportion) >= 15 and <br> n (trial size) * q-bar (failure proportion) >= 15
+			  	</label>
+			  	<br/>
+			  	<label>
+			    	<input type="radio" ng-model="condition" value="interval"> P-bar (success proportion) +/- 3 * Standard Deviation of P-bar,<br> should fall between  0 and 1
+			  	</label>
+			  	<br/>
+			  	<br>
+			</div>
+			<button ng-click="process();" class="btn btn-primary">Process the Input </button>
+		</div>
+
+		<!-- Result Buttons -->
+		<div id="downloadResult" class="downloadResult">
+			<a type="button" ng-href="download" id="resultButton" class="resultButton"> Download </a>
+			<a type="button" href="" id="showHere" class="showHere"> Display </a>
+		</div>
+
+		<br>
+		<br>
+
+		<!-- Display the result in this idv -->
+		<div id="result" class="result">
+			<!-- result here -->
+		</div>
+	</div>
+
+<!-- Included scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="controllers/uploadFileController.js"></script>
+<script src="/findWinner.js"></script>
+
+</body>
+</html>
